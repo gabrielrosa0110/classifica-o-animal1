@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Classificação Animal</title>
+</head>
+<body>
+  <h2>Classificação Animal</h2>
+
+  <label>Classe:</label>
+  <select id="classe">
+    <option value="">-- Selecione --</option>
+    <option value="vertebrado">Vertebrado</option>
+    <option value="invertebrado">Invertebrado</option>
+  </select>
+  <br><br>
+
+  <label>Tipo:</label>
+  <select id="tipo">
+    <option value="">-- Selecione --</option>
+    <option value="ave">Ave</option>
+    <option value="mamifero">Mamífero</option>
+    <option value="inseto">Inseto</option>
+    <option value="anelideo">Anelídeo</option>
+  </select>
+  <br><br>
+
+  <label>Alimento:</label>
+  <select id="alimento">
+    <option value="">-- Selecione --</option>
+    <option value="carnivoro">Carnívoro</option>
+    <option value="onivoro">Onívoro</option>
+    <option value="herbivoro">Herbívoro</option>
+    <option value="hematofago">Hematófago</option>
+  </select>
+  <br><br>
+
+  <button onclick="classificar()">Classificar</button>
+
+  <h3>Resultado:</h3>
+  <p id="resultado"></p>
+
+  <script>
+    function classificar() {
+      let classe = document.getElementById("classe").value;
+      let tipo = document.getElementById("tipo").value;
+      let alimento = document.getElementById("alimento").value;
+
+      let resultado = "";
+
+      if (classe === "vertebrado") {
+        if (tipo === "ave") {
+          if (alimento === "carnivoro") {
+            resultado = "Águia";
+          }
+          if (alimento === "onivoro") {
+            resultado = "Pomba";
+          }
+        }
+        if (tipo === "mamifero") {
+          if (alimento === "onivoro") {
+            resultado = "Homem";
+          }
+          if (alimento === "herbivoro") {
+            resultado = "Vaca";
+          }
+        }
+      }
+
+      if (classe === "invertebrado") {
+        if (tipo === "inseto") {
+          if (alimento === "hematofago") {
+            resultado = "Pulga";
+          }
+          if (alimento === "herbivoro") {
+            resultado = "Lagarta";
+          }
+        }
+        if (tipo === "anelideo") {
+          if (alimento === "hematofago") {
+            resultado = "Sanguessuga";
+          }
+          if (alimento === "onivoro") {
+            resultado = "Minhoca";
+          }
+        }
+      }
+
+      document.getElementById("resultado").innerText = resultado || "Não encontrado";
+    }
+  </script>
+</body>
+</html>
